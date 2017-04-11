@@ -1,0 +1,14 @@
+<div class="form-group">
+    <div class="col-xs-4">Index No.</div>
+    <div class="col-xs-4">Employee Name</div>
+    <div class="col-xs-4">Rating</div>
+</div>
+<div data-ng-repeat="name in name track by $index ">
+    <div class="form-group">
+
+        <div class="col-xs-4">{{$index+1}}</div>
+        <div class="col-xs-4"> {{name}}</div>
+        <div class="col-xs-4">{{rating[$index]}}</div>
+    </div>
+
+</div>

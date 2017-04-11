@@ -1,0 +1,16 @@
+{
+    "dependencies": {
+        "express": "*",
+        "mongodb": "*",
+        "mysql": "*",
+        "path": "*",
+        "routes": "*",
+        "body-parser": "*",
+        "passport": "*",
+        "passport-local": "*",
+        "passport-facebook": "*",
+        "passport-twitter": "*",
+        "passport-google-oauth": "*",
+        "nodemailer": "*"
+    }
+}

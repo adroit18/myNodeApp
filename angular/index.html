@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <base href="/angular/" target="_blank">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--    <script src=""></script>-->
+    <script src="/directives/headerDirective.js"></script>
+
+    <script src="/controllers/formController.js"></script>
+    <script src="/controllers/loginController.js"></script>
+
+    <script src="/directives/ratingDirective.js"></script>
+    <script src="/nginit.js"></script>
+
+</head>
+
+<body>
+
+    <div class="row">
+        <div class=" well text-center lead navbar-fixed-top">
+            <data-header-directive></data-header-directive>
+        </div>
+    </div>
+    <div class="container" style="padding-top:100px">
+        <div class="col-xs-6" ng-view></div>
+        <div class="col-xs-6 well">
+            <div style="height:330px;overflow-y:scroll;margin:6px">
+                <data-rating-directive></data-rating-directive>
+            </div>
+            <div class="col-xs-offset-6"> <button type="submit" class="btn btn-default" data-ng-click="getRatings()">Get Ratings</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    //    (function() {
+    //        var po = document.createElement('script');
+    //        po.type = 'text/javascript';
+    //        po.async = true;
+    //        po.src = 'https://apis.google.com/js/client:plusone.js';
+    //        var s = document.getElementsByTagName('script')[0];
+    //        s.parentNode.insertBefore(po, s);
+    //    })();
+    $(function() {
+        loadScript('https://apis.google.com/js/client:plusone.js', null);
+        loadScript('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js', null);
+        loadScript("https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js", angularLoadCallback);
+    });
+
+    function loadScript(url, callback, asyncFlag) {
+        if (typeof(asyncFlag) == "undefined") {
+            asyncFlag = false
+        }
+        var script = document.createElement("script")
+        script.type = "text/javascript";
+        script.async = asyncFlag;
+        if (script.readyState) { //IE
+            script.onreadystatechange = function() {
+                if (script.readyState == "loaded" ||
+                    script.readyState == "complete") {
+                    script.onreadystatechange = null;
+                    callback();
+                }
+            };
+        } else { //Others
+            script.onload = function() {
+                callback == null ? console.log('asd') : callback();
+            };
+        }
+
+        script.src = url;
+        document.body.appendChild(script);
+    }
+    window.onbeforeunload = function(e) {
+        gapi.auth2.getAuthInstance().signOut();
+    };
+
+</script>

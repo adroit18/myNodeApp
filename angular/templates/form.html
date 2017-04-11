@@ -1,0 +1,46 @@
+<h4>{{title}}
+</h4>
+
+<form name="ratingForm" novalidate>
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input name="name" type="text" class="form-control" data-ng-model="name" placeholder="employee name" required>
+        <span style=" color:red " ng-show="ratingForm.name.$dirty && ratingForm.name.$invalid ">
+        <span ng-show="ratingForm.name.$error.required ">Employee name is required.</span>
+        </span>
+
+    </div>
+    <div class="form-group ">
+        <label for="age ">Age:</label>
+        <input type="text " name="age " class="form-control " data-ng-model="age" placeholder="employee age" required>
+        <span style="color:red " ng-show="ratingForm.age.$dirty && ratingForm.age.$invalid ">
+        <span ng-show="ratingForm.age.$error.required ">Employee age is required.</span>
+        </span>
+    </div>
+    <div class="form-group ">
+        <label for="department ">Department:</label>
+        <input type="text " name="department " class="form-control " data-ng-model="department" placeholder="employee department" required>
+        <span style="color:red " ng-show="ratingForm.department.$dirty && ratingForm.department.$invalid ">
+        <span ng-show="ratingForm.department.$error.required ">Employee department is required.</span>
+        </span>
+    </div>
+    <div class="form-group ">
+        <label for="rating ">Performance Stars:</label>
+        <input type="text " name="rating " class="form-control " data-ng-model="rating" placeholder="employee rating on scale of 10" required>
+        <span style="color:red " ng-show="ratingForm.rating.$dirty && ratingForm.rating.$invalid ">
+        <span ng-show="ratingForm.rating.$error.required ">Employee rating is required.</span>
+        </span>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3 col-xs-offset-3">
+            <input type="submit" class="btn btn-default " data-ng-click="submitStatus() " ng-disabled="ratingForm.$invalid ">
+        </div>
+        <div class="col-xs-3 col-xs-offset-2" style="padding-top:11px">
+            <a href="/angular" target="_self">Go Back</a>
+        </div>
+    </div>
+    <div>
+        {{formSubmitMessage}}
+    </div>
+</form>
